@@ -10,7 +10,7 @@ simplest deploy method a perfect fit.
 index.html      the whole site (one page, all sections)
 thanks.html     the page visitors land on after submitting the contact form
 images/         all photos, logos, and badges used on the site
-audio/phrases/  the 8 individual real recorded phrase clips (phrase1.mp3 ... phrase8.mp3)
+audio/phrases/  the 7 individual real recorded phrase clips (phrase1.mp3 ... phrase7.mp3)
 ```
 
 ## Deploy to Netlify (drag-and-drop, ~2 minutes)
@@ -88,12 +88,10 @@ existing project**. Not necessary to get started.
 
 - The "Press the Button" paw icon now plays the **real recorded audio** for
   each phrase — every press plays the matching line from your original
-  recording (`amanda_panda_voice_lines.wav`), split into 8 individual clips
-  under `audio/phrases/`. The boundaries between phrases were found
-  automatically (by detecting the pauses between lines and cross-checking
-  word counts against the known script), not manually — if any single
-  phrase ever sounds like it cuts off early, starts late, or is paired with
-  the wrong text, send a note and I'll re-cut that specific clip.
+  recording (`amanda_panda_voice_lines.wav`), split into 7 individual clips
+  under `audio/phrases/`. The recording says the script twice; the clips
+  come from the first pass. Each phrase was identified by ear and cut at the
+  pauses around it, with a little padding so no word is clipped.
 - The contact form's "I'm reaching out as a…" options and the status chips
   ("Working Prototype," "Tested by 6+ Families," etc.) reflect the current
   state of the project — update them if that changes.

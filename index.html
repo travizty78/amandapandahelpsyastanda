@@ -485,7 +485,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Press The Button</p>
-        <h2>Eight real, recorded phrases.</h2>
+        <h2>Seven real, recorded phrases.</h2>
         <p>These are the actual words she says, recorded in a warm, encouraging child's voice. Press her button to hear them.</p>
       </div>
       <div class="press-wrap">
@@ -499,7 +499,7 @@
           <audio id="phraseAudio" preload="none"></audio>
         </div>
         <div class="phrase-bubble reveal" id="phraseBubble">
-          <span class="num" id="phraseNum">01 / 08</span>
+          <span class="num" id="phraseNum">01 / 07</span>
           <p id="phraseText">&ldquo;You can do it, reach for the stars!&rdquo;</p>
         </div>
       </div>
@@ -514,12 +514,12 @@
           <p class="eyebrow">For Every Kind of Learner</p>
           <h2>Built for the milestone, not just the moment.</h2>
           <p>Every baby reaches standing on their own timeline. For some, that timeline needs a little more repetition, a little more sensory motivation, or a little more encouragement than words alone provide &mdash; and that's true for typically developing babies and for babies with autism or delayed milestones alike.</p>
-          <p>She was designed around consistent, predictable, positive reinforcement: the same warm voice, the same eight phrases, the same gentle velcro grip, every single time. Parents and occupational therapists can use her as a repeatable practice tool, not a one-time novelty.</p>
+          <p>She was designed around consistent, predictable, positive reinforcement: the same warm voice, the same seven phrases, the same gentle velcro grip, every single time. Parents and occupational therapists can use her as a repeatable practice tool, not a one-time novelty.</p>
         </div>
         <div class="learner-visual reveal">
           <div class="sense-row">
             <div class="sense-icon">🔊</div>
-            <div><h4>Consistent auditory cue</h4><p>The same eight phrases, every time &mdash; predictability that supports repetition-based learning.</p></div>
+            <div><h4>Consistent auditory cue</h4><p>The same seven phrases, every time &mdash; predictability that supports repetition-based learning.</p></div>
           </div>
           <div class="sense-row">
             <div class="sense-icon">🖐️</div>
@@ -574,7 +574,7 @@
           <div class="story-card">
             <div class="story-tag tag-typical">Everyday joy</div>
             <h4>Alexandra</h4>
-            <p>Hearing the same eight encouraging phrases, again and again, turned Alexandra's standing practice into one of the happiest parts of her day.</p>
+            <p>Hearing the same seven encouraging phrases, again and again, turned Alexandra's standing practice into one of the happiest parts of her day.</p>
           </div>
           <div class="story-card">
             <div class="story-tag tag-autism">Autism spectrum</div>
@@ -698,11 +698,10 @@
   // Press the button — signature interaction, now with real audio per phrase
   const phrases = [
     "You can do it, reach for the stars!",
-    "Up, up & away, there you go!",
-    "Reach for me, you can do it!",
+    "Up, Up & Away!",
     "I'm up here, come and get me!",
     "You have such strong legs!",
-    "Good job, do it again!",
+    "Great job, do it again!",
     "You got me, I'm so proud of you!",
     "What a champion, one more time!"
   ];
@@ -750,7 +749,7 @@
   btn.addEventListener('click', () => {
     idx = (idx + 1) % phrases.length;
     text.textContent = '\u201C' + phrases[idx] + '\u201D';
-    num.textContent = String(idx + 1).padStart(2, '0') + ' / 08';
+    num.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(phrases.length).padStart(2, '0');
     btn.classList.add('pressed');
     bubble.classList.remove('pop'); void bubble.offsetWidth; bubble.classList.add('pop');
     stage.style.background = 'radial-gradient(circle at 50% 20%, ' + accents[idx % accents.length] + '22, transparent 70%)';
