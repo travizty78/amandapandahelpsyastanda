@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda Panda Helps Ya' Standa — A Standing & Balance Companion for Babies</title>
+<meta name="description" content="Amanda Panda Helps Ya' Standa is a plush companion that encourages babies to reach, climb, and stand — with real recorded words of encouragement, tested with real families.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F4F8FC;
+    --bg-warm: #FFF7EC;
+    --panel: #FFFFFF;
+    --ink: #23303F;
+    --ink-soft: #5B6B7D;
+    --tangerine: #FF8C42;
+    --tangerine-deep: #E56E22;
+    --coral: #F2637A;
+    --sage: #7FB069;
+    --sky: #6FA8DC;
+    --gold: #FFD166;
+    --line: rgba(35,48,63,0.10);
+    --shadow: 0 20px 45px -20px rgba(35,48,63,0.28);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 10px;
+    --font-display: "Lora", Georgia, serif;
+    --font-body: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; }
+  h1,h2,h3{ font-family: var(--font-display); margin:0; line-height:1.08; }
+  p{ margin:0; }
+  ul{ margin:0; padding:0; list-style:none; }
+  button{ font-family: inherit; cursor:pointer; }
+
+  .wrap{ max-width: 1160px; margin:0 auto; padding: 0 28px; }
+  @media (max-width: 640px){ .wrap{ padding: 0 20px; } }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-size: 12.5px;
+    color: var(--tangerine-deep);
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position: sticky; top:0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(244,248,252,0.82);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px;
+    max-width: 1160px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-family: var(--font-display); font-weight:700; font-size: 19px; }
+  .brand img{ width:38px; height:38px; border-radius:50%; object-fit:cover; }
+  nav.links{ display:flex; gap: 28px; }
+  nav.links a{
+    text-decoration:none; font-weight:700; font-size:14.5px; color: var(--ink-soft);
+    transition: color .2s ease;
+  }
+  nav.links a:hover{ color: var(--tangerine-deep); }
+  .nav-cta{
+    background: var(--ink); color:#fff; padding:10px 18px; border-radius: 999px;
+    font-weight:800; font-size:14px; text-decoration:none; white-space:nowrap;
+  }
+  .menu-toggle{ display:none; background:none; border:none; padding:6px; }
+  .mobile-menu{
+    display:none; flex-direction:column; padding: 6px 28px 18px;
+    border-bottom: 1px solid var(--line); background: var(--bg);
+  }
+  .mobile-menu a{
+    padding: 12px 0; border-top: 1px solid var(--line); text-decoration:none;
+    font-weight:700; color: var(--ink-soft); font-size:15px;
+  }
+  .mobile-menu a:first-child{ border-top:none; }
+  .mobile-menu.open{ display:flex; }
+  @media (max-width: 860px){
+    nav.links{ display:none; }
+    .nav-cta{ display:none; }
+    .menu-toggle{ display:block; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    padding: 76px 0 60px;
+  }
+  .hero .wrap{ display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items:center; }
+  @media (max-width: 900px){ .hero .wrap{ grid-template-columns: 1fr; } }
+
+  .hero h1{
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 600;
+    margin-top: 14px;
+    color: var(--ink);
+  }
+  .hero h1 em{ font-style:italic; color: var(--tangerine-deep); }
+  .hero p.sub{
+    margin-top: 20px; font-size: 18px; color: var(--ink-soft); max-width: 46ch;
+  }
+  .hero .cta-row{ display:flex; gap:14px; margin-top: 30px; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 14px 26px; border-radius: 999px; font-weight:800; font-size:15px;
+    text-decoration:none; border: 2px solid transparent; transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-primary{ background: var(--tangerine); color:#fff; box-shadow: 0 14px 28px -12px rgba(255,140,66,.65); }
+  .btn-primary:hover{ background: var(--tangerine-deep); }
+  .btn-ghost{ background: transparent; border-color: var(--ink); color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color:#fff; }
+
+  .hero-art{ position: relative; display:flex; justify-content:center; }
+  .hero-photo-frame{
+    position:relative; width: 300px; border-radius: var(--radius-lg);
+    overflow:hidden; box-shadow: var(--shadow); border: 6px solid #fff;
+    transform: rotate(-2deg);
+  }
+  .hero-photo-frame img{ width:100%; }
+  .badge-float{
+    position:absolute; border-radius:50%; box-shadow: var(--shadow); border:4px solid #fff;
+  }
+  .badge-1{ width:92px; top:-18px; right:-24px; transform: rotate(8deg); }
+  .badge-2{ width:64px; bottom:-14px; left:-30px; transform: rotate(-10deg); }
+
+  .sparkle{ position:absolute; opacity:.9; }
+  .sparkle svg{ width:100%; height:100%; }
+  @media (prefers-reduced-motion: no-preference){
+    .sparkle{ animation: drift 6s ease-in-out infinite; }
+    .sparkle.s2{ animation-duration: 8s; animation-delay: .6s; }
+    .sparkle.s3{ animation-duration: 7s; animation-delay: 1.4s; }
+  }
+  @keyframes drift{
+    0%,100%{ transform: translateY(0) rotate(0deg); }
+    50%{ transform: translateY(-10px) rotate(14deg); }
+  }
+
+  /* ---------- THESIS / MOMENT ---------- */
+  .moment{ padding: 40px 0 76px; }
+  .moment blockquote{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height:1.4;
+    text-align:center;
+    max-width: 760px; margin: 0 auto;
+    color: var(--ink);
+  }
+  .moment blockquote span{ color: var(--tangerine-deep); font-style: normal; font-weight:700; }
+
+  /* ---------- SECTION shared ---------- */
+  section{ padding: 84px 0; }
+  .section-head{ max-width: 620px; margin-bottom: 48px; }
+  .section-head h2{ font-size: clamp(28px, 3.6vw, 40px); font-weight:600; margin-top:10px; }
+  .section-head p{ margin-top: 14px; color: var(--ink-soft); font-size: 17px; }
+  .band-warm{ background: var(--bg-warm); }
+  .band-ink{ background: var(--ink); color: #fff; }
+  .band-ink .eyebrow{ color: var(--gold); }
+  .band-ink .section-head p{ color: rgba(255,255,255,0.75); }
+
+  /* ---------- HOW SHE WORKS ---------- */
+  .steps{ display:grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+  @media (max-width: 820px){ .steps{ grid-template-columns: 1fr; } }
+  .step-card{
+    background:#fff; border-radius: var(--radius-md); padding: 30px 26px;
+    border: 1px solid var(--line); position:relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .step-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow); }
+  .paw{
+    width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:19px; font-weight:900; color:#fff; margin-bottom: 18px;
+  }
+  .paw.p1{ background: var(--tangerine); }
+  .paw.p2{ background: var(--sky); }
+  .paw.p3{ background: var(--sage); }
+  .step-card h3{ font-size: 20px; font-weight:700; margin-bottom:8px; }
+  .step-card p{ color: var(--ink-soft); font-size: 15.5px; }
+
+  /* ---------- PRESS THE BUTTON (signature) ---------- */
+  .press-wrap{
+    display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items:center;
+  }
+  @media (max-width: 900px){ .press-wrap{ grid-template-columns:1fr; } }
+  .button-stage{
+    display:flex; flex-direction:column; align-items:center; gap: 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+    padding: 40px 20px; border-radius: var(--radius-lg);
+  }
+  #pressBtn{
+    width: 152px; height:152px; border-radius:50%; border:none;
+    background: radial-gradient(circle at 35% 30%, #FFAD6E, var(--tangerine) 60%, var(--tangerine-deep) 100%);
+    box-shadow: 0 18px 0 0 rgba(0,0,0,0.18), 0 24px 40px -10px rgba(255,140,66,0.55);
+    position:relative; transition: transform .08s ease, box-shadow .08s ease;
+  }
+  #pressBtn:active, #pressBtn.pressed{
+    transform: translateY(14px);
+    box-shadow: 0 4px 0 0 rgba(0,0,0,0.18), 0 10px 20px -8px rgba(255,140,66,0.5);
+  }
+  #pressBtn.speaking{ animation: speaking-pulse 0.7s ease-in-out infinite; }
+  @keyframes speaking-pulse{
+    0%,100%{ box-shadow: 0 18px 0 0 rgba(0,0,0,0.18), 0 24px 40px -10px rgba(255,140,66,0.55); }
+    50%{ box-shadow: 0 18px 0 0 rgba(0,0,0,0.18), 0 24px 52px -6px rgba(255,140,66,0.85); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    #pressBtn.speaking{ animation: none; }
+  }
+  #pressBtn .paw-icon{ width:56px; height:56px; margin:0 auto; }
+  #pressBtn .paw-icon svg{ width:100%; height:100%; fill:#fff; }
+  .press-caption{ color: rgba(255,255,255,0.65); font-size: 13.5px; text-align:center; max-width: 260px; }
+
+  .phrase-bubble{
+    min-height: 120px;
+    background: #fff; color: var(--ink); border-radius: var(--radius-md);
+    padding: 26px 28px; position:relative; box-shadow: var(--shadow);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+  }
+  .phrase-bubble p{
+    font-family: var(--font-display); font-style:italic; font-weight:600;
+    font-size: clamp(20px, 2.6vw, 26px);
+  }
+  .phrase-bubble .num{
+    position:absolute; top:14px; left:18px; font-family: var(--font-body); font-weight:900;
+    font-size:12px; color: var(--tangerine-deep); letter-spacing:.08em;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .phrase-bubble.pop{ animation: pop .38s ease; }
+  }
+  @keyframes pop{
+    0%{ transform: scale(.92); opacity:.4; }
+    60%{ transform: scale(1.02); }
+    100%{ transform: scale(1); opacity:1; }
+  }
+
+  /* ---------- FOR EVERY LEARNER ---------- */
+  .learner-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center; }
+  @media (max-width: 900px){ .learner-grid{ grid-template-columns:1fr; } }
+  .learner-copy h2{ font-size: clamp(26px,3.4vw,36px); font-weight:600; }
+  .learner-copy p{ margin-top:16px; color: var(--ink-soft); font-size:16.5px; }
+  .learner-copy p + p{ margin-top:14px; }
+  .learner-visual{
+    background: var(--panel); border-radius: var(--radius-lg); padding: 36px;
+    border: 1px solid var(--line);
+  }
+  .sense-row{ display:flex; gap:16px; align-items:flex-start; padding: 16px 0; border-top:1px solid var(--line); }
+  .sense-row:first-child{ border-top:none; padding-top:0; }
+  .sense-icon{
+    width:38px; height:38px; border-radius:10px; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:18px;
+  }
+  .sense-row:nth-child(1) .sense-icon{ background: rgba(111,168,220,.16); }
+  .sense-row:nth-child(2) .sense-icon{ background: rgba(127,176,105,.18); }
+  .sense-row:nth-child(3) .sense-icon{ background: rgba(255,140,66,.16); }
+  .sense-row h4{ font-size:15.5px; margin:0 0 4px; font-weight:800; }
+  .sense-row p{ font-size:14.5px; color: var(--ink-soft); margin:0; }
+
+  /* ---------- STORY ---------- */
+  .story-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items:center; }
+  @media (max-width: 900px){ .story-wrap{ grid-template-columns:1fr; } }
+  .photo-collage{ position:relative; display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  .photo-collage img{ border-radius: var(--radius-md); box-shadow: var(--shadow); border:5px solid #fff; }
+  .photo-collage .tall{ grid-row: span 2; }
+  .story-copy blockquote{
+    font-family: var(--font-display); font-style:italic; font-size: 21px; font-weight:500;
+    border-left: 4px solid var(--tangerine); padding-left:20px; margin: 22px 0;
+    color: var(--ink);
+  }
+  .story-copy p{ color: var(--ink-soft); font-size:16.5px; }
+  .story-copy p + p{ margin-top:14px; }
+  .story-copy .attribution{ font-weight:800; color: var(--ink); margin-top:18px; font-size:14.5px; }
+
+  .friends-family{ margin-top: 72px; }
+  .friends-heading{
+    font-family: var(--font-display); font-weight:500; font-style:italic;
+    font-size: clamp(20px, 2.6vw, 26px); max-width: 760px; margin-top:10px; color: var(--ink);
+    line-height:1.4;
+  }
+  .story-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  @media (max-width: 900px){ .story-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px){ .story-grid{ grid-template-columns: 1fr; } }
+  .story-card{
+    background:#fff; border-radius: var(--radius-md); padding: 24px; border:1px solid var(--line);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .story-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow); }
+  .story-card h4{ font-family: var(--font-display); font-size:18px; font-weight:600; margin: 10px 0 8px; }
+  .story-card p{ font-size:14.5px; color: var(--ink-soft); line-height:1.55; }
+  .story-tag{
+    display:inline-block; font-size:11.5px; font-weight:900; letter-spacing:.05em; text-transform:uppercase;
+    padding: 5px 11px; border-radius:999px;
+  }
+  .tag-typical{ background: rgba(127,176,105,.16); color: #4C7A3A; }
+  .tag-delayed{ background: rgba(111,168,220,.18); color: #2E5D8A; }
+  .tag-autism{ background: rgba(255,140,66,.16); color: var(--tangerine-deep); }
+  .story-card-closer{ background: var(--ink); border-color: var(--ink); }
+  .story-card-closer h4{ color: #fff; }
+  .story-card-closer p{ color: rgba(255,255,255,0.7); }
+
+  /* ---------- SPECS ---------- */
+  .specs-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:22px; }
+  @media (max-width: 900px){ .specs-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .specs-grid{ grid-template-columns: 1fr; } }
+  .spec-tile{
+    background:#fff; border-radius: var(--radius-md); padding:24px; border:1px solid var(--line);
+  }
+  .spec-tile .label{ font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color: var(--tangerine-deep); }
+  .spec-tile .value{ font-family: var(--font-display); font-size:19px; margin-top:8px; font-weight:600; }
+  .status-strip{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 40px; }
+  .status-chip{
+    display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line);
+    border-radius:999px; padding:9px 16px; font-size:13.5px; font-weight:700; color: var(--ink-soft);
+  }
+  .status-chip .dot{ width:8px; height:8px; border-radius:50%; background: var(--sage); }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  @media (max-width: 900px){ .contact-wrap{ grid-template-columns:1fr; } }
+  .contact-copy h2{ font-size: clamp(26px,3.4vw,36px); font-weight:600; color:#fff; }
+  .contact-copy p{ color: rgba(255,255,255,0.72); margin-top:14px; font-size:16px; max-width: 42ch; }
+  .contact-list{ margin-top:26px; display:flex; flex-direction:column; gap:10px; }
+  .contact-list a{ color:#fff; text-decoration:none; font-weight:700; font-size:15px; opacity:.9; }
+  .contact-list a:hover{ opacity:1; text-decoration:underline; }
+
+  form.inquiry{
+    background: #fff; border-radius: var(--radius-lg); padding: 34px; box-shadow: var(--shadow);
+    color: var(--ink);
+  }
+  form.inquiry .field{ margin-bottom:18px; }
+  form.inquiry label{ display:block; font-weight:800; font-size:13.5px; margin-bottom:6px; color: var(--ink); }
+  form.inquiry input, form.inquiry select, form.inquiry textarea{
+    width:100%; padding:12px 14px; border-radius: 10px; border:1.5px solid var(--line);
+    font-family: var(--font-body); font-size:15px; background: var(--bg); color: var(--ink);
+  }
+  form.inquiry textarea{ min-height:90px; resize:vertical; }
+  form.inquiry input:focus, form.inquiry select:focus, form.inquiry textarea:focus{
+    outline: 3px solid rgba(255,140,66,.35); border-color: var(--tangerine);
+  }
+  form.inquiry .btn-primary{ width:100%; justify-content:center; border:none; }
+  .hp-field{ position:absolute; left:-9999px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background: var(--ink); color: rgba(255,255,255,0.6); padding: 34px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size: 13px; }
+  .footer-inner a{ color: rgba(255,255,255,0.75); text-decoration:none; }
+  .footer-inner a:hover{ text-decoration:underline; }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform: translateY(18px); }
+  .reveal.in{ opacity:1; transform:none; transition: opacity .7s ease, transform .7s ease; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; }
+    html{ scroll-behavior:auto; }
+    .sparkle{ animation:none !important; }
+  }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:auto; background:#fff; padding:10px 16px; border-radius:8px;
+  }
+  .skip-link:focus{ left: 20px; top:20px; z-index:200; }
+  a:focus-visible, button:focus-visible{ outline: 3px solid var(--sky); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <img src="images/logo-orange.jpg" alt="Amanda Panda Helps Ya' Standa logo">
+      Amanda Panda Helps Ya' Standa
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#how-it-works">How She Works</a>
+      <a href="#every-learner">For Every Learner</a>
+      <a href="#story">Our Story</a>
+      <a href="#meet-amanda">Meet Her</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Licensing Inquiries</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#23303F" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#how-it-works">How She Works</a>
+    <a href="#every-learner">For Every Learner</a>
+    <a href="#story">Our Story</a>
+    <a href="#meet-amanda">Meet Her</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">A Standing &amp; Balance Companion</p>
+        <h1>Helping babies find their footing, <em>one encouraging word at a time.</em></h1>
+        <p class="sub">Amanda Panda Helps Ya' Standa is a plush companion parents place just out of reach — so babies climb, pull up, and stand, and hear her cheer them on the moment they get there.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#how-it-works">See How She Works</a>
+          <a class="btn btn-ghost" href="#every-learner">For Parents &amp; Clinicians</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-photo-frame">
+          <img src="images/hero-baby.jpg" alt="A baby standing while holding onto the Amanda Panda Helps Ya' Standa plush toy, smiling.">
+        </div>
+        <img class="badge-float badge-1" src="images/badge-blue.jpg" alt="">
+        <img class="badge-float badge-2" src="images/badge-green.jpg" alt="">
+        <div class="sparkle s1" style="position:absolute; top:6%; left:2%; width:26px;" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#FFD166"/></svg>
+        </div>
+        <div class="sparkle s2" style="position:absolute; bottom:10%; right:0%; width:18px;" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#F2637A"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="moment reveal">
+    <div class="wrap">
+      <blockquote>Standing is one of the biggest milestones of a baby's first year &mdash; and one of the hardest to practice alone. She gives babies a reason to <span>reach, climb, and try again.</span></blockquote>
+    </div>
+  </section>
+
+  <!-- HOW SHE WORKS -->
+  <section id="how-it-works" class="band-warm">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How She Works</p>
+        <h2>Three simple steps, every time.</h2>
+        <p>No screens, no setup app, no batteries to charge mid-nap. Just a plush bear and a real reason to stand.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card reveal">
+          <div class="paw p1">1</div>
+          <h3>Place her up high</h3>
+          <p>A parent sets her on the arm of a couch or the crib rail, just above where the baby is playing, and presses her chest button to say hello.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="paw p2">2</div>
+          <h3>Baby reaches &amp; stands</h3>
+          <p>Drawn by her voice, the baby crawls over, pulls up on the furniture, and grabs hold of her velcro paws to reach a full stand.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="paw p3">3</div>
+          <h3>She cheers them on</h3>
+          <p>A squeeze presses her button again &mdash; babies quickly learn they can trigger her encouragement themselves, and do it again, and again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS THE BUTTON -->
+  <section class="band-ink">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Press The Button</p>
+        <h2>Eight real, recorded phrases.</h2>
+        <p>These are the actual words she says, recorded in a warm, encouraging child's voice. Press her button to hear them.</p>
+      </div>
+      <div class="press-wrap">
+        <div class="button-stage reveal">
+          <button id="pressBtn" aria-label="Press her button to hear the next phrase">
+            <span class="paw-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><ellipse cx="32" cy="40" rx="18" ry="15"/><circle cx="14" cy="20" r="7"/><circle cx="50" cy="20" r="7"/><circle cx="24" cy="10" r="6.5"/><circle cx="40" cy="10" r="6.5"/></svg>
+            </span>
+          </button>
+          <p class="press-caption">Tap the paw to hear each real recorded phrase.</p>
+          <audio id="phraseAudio" preload="none"></audio>
+        </div>
+        <div class="phrase-bubble reveal" id="phraseBubble">
+          <span class="num" id="phraseNum">01 / 08</span>
+          <p id="phraseText">&ldquo;You can do it, reach for the stars!&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR EVERY LEARNER -->
+  <section id="every-learner">
+    <div class="wrap">
+      <div class="learner-grid">
+        <div class="learner-copy reveal">
+          <p class="eyebrow">For Every Kind of Learner</p>
+          <h2>Built for the milestone, not just the moment.</h2>
+          <p>Every baby reaches standing on their own timeline. For some, that timeline needs a little more repetition, a little more sensory motivation, or a little more encouragement than words alone provide &mdash; and that's true for typically developing babies and for babies with autism or delayed milestones alike.</p>
+          <p>She was designed around consistent, predictable, positive reinforcement: the same warm voice, the same eight phrases, the same gentle velcro grip, every single time. Parents and occupational therapists can use her as a repeatable practice tool, not a one-time novelty.</p>
+        </div>
+        <div class="learner-visual reveal">
+          <div class="sense-row">
+            <div class="sense-icon">🔊</div>
+            <div><h4>Consistent auditory cue</h4><p>The same eight phrases, every time &mdash; predictability that supports repetition-based learning.</p></div>
+          </div>
+          <div class="sense-row">
+            <div class="sense-icon">🖐️</div>
+            <div><h4>Tactile engagement</h4><p>Soft plush and velcro paws give babies something secure to grip while pulling to stand.</p></div>
+          </div>
+          <div class="sense-row">
+            <div class="sense-icon">💛</div>
+            <div><h4>Positive-only reinforcement</h4><p>Every phrase is encouragement &mdash; there's no wrong way to reach for her.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story" class="band-warm">
+    <div class="wrap">
+      <div class="story-wrap">
+        <div class="photo-collage reveal">
+          <img class="tall" src="images/family-2.jpg" alt="A baby standing at a couch, reaching up toward Amanda Panda Helps Ya' Standa placed on the cushion.">
+          <img src="images/family-1.jpg" alt="Amanda Panda Helps Ya' Standa placed on a couch cushion above a baby playing nearby.">
+          <img src="images/family-3.jpg" alt="Close-up of the Amanda Panda Helps Ya' Standa plush prototype.">
+        </div>
+        <div class="story-copy reveal">
+          <p class="eyebrow">Our Story</p>
+          <h2 style="font-size:clamp(26px,3.4vw,36px); font-weight:600; margin-top:10px;">Tested at home, not just on paper.</h2>
+          <blockquote>&ldquo;It worked so well with our first child that we used her again with our second &mdash; and it worked just as well the second time.&rdquo;</blockquote>
+          <p>Amanda Panda Helps Ya' Standa started as one parent's answer to a real moment: a very active baby, already climbing at a young age, now having a real reason to reach and stand. She was placed in the same spot, day after day, and became something the baby looked forward to climbing toward.</p>
+          <p class="attribution">&mdash; The family behind Amanda Panda Helps Ya' Standa</p>
+        </div>
+      </div>
+
+      <div class="friends-family reveal">
+        <p class="eyebrow">Shared With Friends &amp; Family</p>
+        <h3 class="friends-heading">After it worked for our own two, we started handing prototypes to friends and family with little ones in the same stage. The results kept surprising us.</h3>
+        <div class="story-grid">
+          <div class="story-card">
+            <div class="story-tag tag-typical">6&ndash;7 months</div>
+            <h4>The Moskowitz Family</h4>
+            <p>Their son Kean was a typically developing little guy with no delays at all &mdash; his parents just wanted to give him a confidence-building head start. He was pulling up and standing with Amanda Panda Helps Ya' Standa's encouragement at just 6&ndash;7 months old.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-tag tag-delayed">Delayed milestones</div>
+            <h4>The Lee Family</h4>
+            <p>Their daughter Jayden's milestones were coming in a little later than expected. With the same steady voice and encouragement every time, standing practice turned from a source of worry into something Jayden looked forward to.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-tag tag-autism">Autism spectrum</div>
+            <h4>The Garcia Family</h4>
+            <p>Their son is on the autism spectrum and is non-verbal, and he connected with her steady, predictable voice almost immediately. He wanted her with him wherever he went &mdash; including at bedtime.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-tag tag-typical">Everyday joy</div>
+            <h4>Alexandra</h4>
+            <p>Hearing the same eight encouraging phrases, again and again, turned Alexandra's standing practice into one of the happiest parts of her day.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-tag tag-autism">Autism spectrum</div>
+            <h4>A Family Friend's Daughter</h4>
+            <p>Another family's daughter, also on the autism spectrum, formed an immediate bond with her &mdash; carrying her from room to room and needing her close by to fall asleep at night.</p>
+          </div>
+          <div class="story-card story-card-closer">
+            <div class="story-tag tag-typical">Word of mouth</div>
+            <h4>And It Kept Going</h4>
+            <p>Word kept spreading between friends with kids in the same stage. The same simple routine &mdash; place her up high, reach, and celebrate &mdash; worked again and again, no matter the child.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET AMANDA / SPECS -->
+  <section id="meet-amanda">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Meet Her</p>
+        <h2>The details.</h2>
+        <p>A soft, washable companion sized for little arms, built around a simple, reliable sound unit.</p>
+      </div>
+      <div class="specs-grid">
+        <div class="spec-tile reveal"><div class="label">Size</div><div class="value">12&Prime; H &times; 13&Prime; L &times; 10&Prime; W</div></div>
+        <div class="spec-tile reveal"><div class="label">Weight</div><div class="value">8 oz.</div></div>
+        <div class="spec-tile reveal"><div class="label">Materials</div><div class="value">100% polyester, hollow-fiber fill</div></div>
+        <div class="spec-tile reveal"><div class="label">Sound Unit</div><div class="value">Chest button, over 3 minutes of playtime per cycle</div></div>
+        <div class="spec-tile reveal"><div class="label">Power</div><div class="value">3 &times; AAA batteries</div></div>
+        <div class="spec-tile reveal"><div class="label">Voice</div><div class="value">Warm, encouraging child's voice</div></div>
+        <div class="spec-tile reveal"><div class="label">Care</div><div class="value">Back slit + velcro, sound unit removes for washing</div></div>
+        <div class="spec-tile reveal"><div class="label">Languages</div><div class="value">Designed for multilingual sound units</div></div>
+      </div>
+      <div class="status-strip reveal">
+        <span class="status-chip"><span class="dot"></span>Working Prototype</span>
+        <span class="status-chip"><span class="dot"></span>Voice Recording Complete</span>
+        <span class="status-chip"><span class="dot"></span>Tested by 6+ Families</span>
+        <span class="status-chip" style="opacity:.6"><span class="dot" style="background:#C9C2B4"></span>Seeking Licensing Partner</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="band-ink">
+    <div class="wrap">
+      <div class="contact-wrap">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Get In Touch</p>
+          <h2>Licensing, press, or just want updates?</h2>
+          <p>Amanda Panda Helps Ya' Standa is currently seeking a licensing partner to bring her from prototype to production. Reach out directly, or send a note below.</p>
+          <div class="contact-list">
+            <a href="mailto:info@pivotecom.com">info@pivotecom.com</a>
+          </div>
+        </div>
+        <form class="inquiry reveal" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+          <input type="hidden" name="form-name" value="inquiry" />
+          <p class="hp-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="role">I'm reaching out as a&hellip;</label>
+            <select id="role" name="role">
+              <option>Parent</option>
+              <option>Toy Manufacturer / Licensing</option>
+              <option>Retailer</option>
+              <option>Clinician / Occupational Therapist</option>
+              <option>Press / Media</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; 2017&ndash;2026 Amanda Panda Helps Ya' Standa. All rights reserved.</span>
+    <span><a href="mailto:info@pivotecom.com">info@pivotecom.com</a></span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // Press the button — signature interaction, now with real audio per phrase
+  const phrases = [
+    "You can do it, reach for the stars!",
+    "Up, up & away, there you go!",
+    "Reach for me, you can do it!",
+    "I'm up here, come and get me!",
+    "You have such strong legs!",
+    "Good job, do it again!",
+    "You got me, I'm so proud of you!",
+    "What a champion, one more time!"
+  ];
+  let idx = -1; // first press plays phrase 1
+  const btn = document.getElementById('pressBtn');
+  const bubble = document.getElementById('phraseBubble');
+  const text = document.getElementById('phraseText');
+  const num = document.getElementById('phraseNum');
+  const stage = document.querySelector('.button-stage');
+  const accents = ['#FF8C42', '#6FA8DC', '#7FB069', '#F2637A'];
+
+  // Single audio element, but we never call play() until the browser
+  // confirms the NEW file is actually loaded and ready — this is what
+  // prevents leftover audio from a previous press bleeding into the next
+  // one (the root cause of "plays the wrong phrase" / "doesn't stop").
+  const phraseAudio = document.getElementById('phraseAudio');
+  let requestToken = 0;
+
+  function stopCleanly() {
+    phraseAudio.pause();
+    phraseAudio.removeAttribute('src');
+    phraseAudio.load(); // fully discards any buffered/decoding audio
+  }
+
+  phraseAudio.addEventListener('ended', () => btn.classList.remove('speaking'));
+
+  function playPhrase(n) {
+    const myToken = ++requestToken;
+    stopCleanly();
+
+    const onReady = () => {
+      phraseAudio.removeEventListener('canplaythrough', onReady);
+      if (myToken !== requestToken) return; // superseded by a later click — do nothing
+      btn.classList.add('speaking');
+      const p = phraseAudio.play();
+      if (p !== undefined) {
+        p.catch(() => { if (myToken === requestToken) btn.classList.remove('speaking'); });
+      }
+    };
+    phraseAudio.addEventListener('canplaythrough', onReady);
+    phraseAudio.src = 'audio/phrases/phrase' + n + '.mp3';
+    phraseAudio.load();
+  }
+
+  btn.addEventListener('click', () => {
+    idx = (idx + 1) % phrases.length;
+    text.textContent = '\u201C' + phrases[idx] + '\u201D';
+    num.textContent = String(idx + 1).padStart(2, '0') + ' / 08';
+    btn.classList.add('pressed');
+    bubble.classList.remove('pop'); void bubble.offsetWidth; bubble.classList.add('pop');
+    stage.style.background = 'radial-gradient(circle at 50% 20%, ' + accents[idx % accents.length] + '22, transparent 70%)';
+    setTimeout(() => btn.classList.remove('pressed'), 160);
+
+    playPhrase(idx + 1);
+  });
+</script>
+
+</body>
+</html>
