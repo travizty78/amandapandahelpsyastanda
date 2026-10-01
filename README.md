@@ -9,6 +9,7 @@ simplest deploy method a perfect fit.
 ```
 index.html      the whole site (one page, all sections)
 thanks.html     the page visitors land on after submitting the contact form
+favicon.*, apple-touch-icon.png, icon-*.png, site.webmanifest   browser tab and home-screen icons
 images/         all photos, logos, and badges used on the site
 audio/phrases/  the 7 individual real recorded phrase clips (phrase1.mp3 ... phrase7.mp3)
 ```
