@@ -1,14 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <circle cx="32" cy="32" r="32" fill="#F6C453"/>
-  <circle cx="15.5" cy="17" r="9.5" fill="#23303F"/>
-  <circle cx="48.5" cy="17" r="9.5" fill="#23303F"/>
-  <circle cx="15.5" cy="17" r="4.2" fill="#F2B5BC"/>
-  <circle cx="48.5" cy="17" r="4.2" fill="#F2B5BC"/>
-  <ellipse cx="32" cy="36" rx="23" ry="20" fill="#FFFDF7" stroke="#23303F" stroke-width="2.6"/>
-  <ellipse cx="22.5" cy="34.5" rx="6.2" ry="8" transform="rotate(-28 22.5 34.5)" fill="#23303F"/>
-  <ellipse cx="41.5" cy="34.5" rx="6.2" ry="8" transform="rotate(28 41.5 34.5)" fill="#23303F"/>
-  <circle cx="23.6" cy="33.2" r="2.3" fill="#FFFDF7"/>
-  <circle cx="40.4" cy="33.2" r="2.3" fill="#FFFDF7"/>
-  <ellipse cx="32" cy="43.2" rx="3.4" ry="2.4" fill="#23303F"/>
-  <path d="M28.6 47.2 Q32 50.6 35.4 47.2" fill="none" stroke="#23303F" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="15.5" cy="17" r="9.5" fill="#2E2E30"/>
+  <circle cx="48.5" cy="17" r="9.5" fill="#2E2E30"/>
+  <circle cx="15.8" cy="17.5" r="5" fill="#F0B6BC"/>
+  <circle cx="48.2" cy="17.5" r="5" fill="#F0B6BC"/>
+  <ellipse cx="32" cy="36" rx="23" ry="20" fill="#FFFFFF" stroke="#2E2E30" stroke-width="2.4"/>
+  <ellipse cx="22" cy="34" rx="6.4" ry="7.6" transform="rotate(-35 22 34)" fill="#3A3A3C"/>
+  <ellipse cx="42" cy="34" rx="6.4" ry="7.6" transform="rotate(35 42 34)" fill="#3A3A3C"/>
+  <circle cx="23" cy="34.2" r="3.4" fill="#FFFFFF"/>
+  <circle cx="41" cy="34.2" r="3.4" fill="#FFFFFF"/>
+  <circle cx="23.2" cy="34.4" r="2.3" fill="#1F1F21"/>
+  <circle cx="40.8" cy="34.4" r="2.3" fill="#1F1F21"/>
+  <circle cx="24" cy="33.4" r="0.9" fill="#FFFFFF"/>
+  <circle cx="41.6" cy="33.4" r="0.9" fill="#FFFFFF"/>
+  <ellipse cx="15.5" cy="42.5" rx="3.6" ry="2.6" fill="#F7B9BC"/>
+  <ellipse cx="48.5" cy="42.5" rx="3.6" ry="2.6" fill="#F7B9BC"/>
+  <ellipse cx="32" cy="40.8" rx="2.7" ry="1.9" fill="#2E2E30"/>
+  <path d="M27.6 44 Q32 52.5 36.4 44 Z" fill="#B8432F" stroke="#2E2E30" stroke-width="1.3" stroke-linejoin="round"/>
+  <ellipse cx="32" cy="48" rx="2.4" ry="1.4" fill="#F29AA0"/>
 </svg>
